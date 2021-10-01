@@ -19,6 +19,9 @@ namespace Monogame_Mouse_Collision
         Texture2D targetTexture;
         Rectangle targetRect;
 
+        Texture2D targetColorTexture;
+        Rectangle targetColorRect;
+
         SpriteFont statusFont;
         string status;
 
@@ -44,6 +47,9 @@ namespace Monogame_Mouse_Collision
             // TODO: use this.Content to load your game content here
             crosshairTexture = Content.Load<Texture2D>("crosshair");
             crosshairRect = new Rectangle(0, 0, 40, 40);
+
+            targetColorTexture = Content.Load<Texture2D>("target_color");
+            targetColorRect = new Rectangle(550, 140, 200, 200);
 
             targetTexture = Content.Load<Texture2D>("targetSquare");
             targetRect = new Rectangle(300, 140, 200, 200);
@@ -85,6 +91,7 @@ namespace Monogame_Mouse_Collision
             _spriteBatch.DrawString(statusFont, status, new Vector2(10, _graphics.PreferredBackBufferHeight - 40), Color.Black);
             _spriteBatch.Draw(targetTexture, targetRect, Color.White);
             _spriteBatch.Draw(crosshairTexture, crosshairRect, Color.White);
+            _spriteBatch.Draw(targetColorTexture, targetColorRect, Color.White);
             _spriteBatch.End();
 
             base.Draw(gameTime);
